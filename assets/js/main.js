@@ -27,9 +27,14 @@ if (window.PaymentRequest) {
 
   btnPaymentRequest.addEventListener('click', () => {
     request.show()
-      .then((res) => {
+      .then((paymentResponse) => {
         messageBoard.className = '';
-        messageBoard.innerText = JSON.stringify(res, null, 2);
+        messageBoard.innerText = JSON.stringify(paymentResponse, null, 2);
+
+        setTimeout(() => {
+          // success or fail string to complete function
+          paymentResponse.complete('success');
+        }, 3000);
       })
       .catch((err) => {
         if (err && err.message) {
