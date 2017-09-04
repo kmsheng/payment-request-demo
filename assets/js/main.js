@@ -28,7 +28,8 @@ if (window.PaymentRequest) {
   btnPaymentRequest.addEventListener('click', () => {
     request.show()
       .then((res) => {
-        console.log('res', res);
+        messageBoard.className = '';
+        messageBoard.innerText = JSON.stringify(res, null, 2);
       })
       .catch((err) => {
         if (err && err.message) {
