@@ -18,7 +18,10 @@ if (window.PaymentRequest) {
       }
     }
   };
-  const options = {};
+  const options = {
+    requestPayerName: true,
+    requestPayerPhone: true
+  };
 
   const request = new PaymentRequest(supportedPaymentMethods, paymentDetails, options);
 
