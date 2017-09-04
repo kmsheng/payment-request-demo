@@ -33,6 +33,7 @@ if (window.PaymentRequest) {
       })
       .catch((err) => {
         if (err && err.message) {
+          messageBoard.className = 'danger';
           messageBoard.innerText = err.message;
         }
       });
